@@ -1,0 +1,35 @@
+* HTML
+@foreach($data['metalParticles'] as $item)
+    <div class="col-md-2">
+        <img style="float: right" src="{{asset('public/storage/'.$item->Image)}}" 
+            height="150" width="150" class="img-thumbnail"><br/>
+    </div>
+    <div class="col-md-1">
+    <input type="checkbox" name="metalParticle_id" value="{{$item->id}}" >
+    </div>
+    <div class="col-md-3">
+    <label class="py-2">{{$item->PossibilityEn}}    </label> 
+    <label class="py-2"> {{$item->PossibilityFr}}  </label> 
+    <label class="py-2"> {{$item->PossibilityZh}}  </label> 
+    </div>
+    @endforeach 
+*Script
+<script>
+    //ckeck box only one
+$("input:checkbox").on('click', function() {
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+
+</script>
