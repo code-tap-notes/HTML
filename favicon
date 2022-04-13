@@ -1,0 +1,4 @@
+convert file .png to file .ico
+Chép vào thư mục rôt web-main
+Cài dưới dòng title
+<link rel="shortcut icon" alt="Key words" href ="{!! asset('icon.ico')!!}"/>
